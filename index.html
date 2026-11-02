@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oracle — expense tracker</title>
+<meta name="description" content="Log expenses in seconds. Works offline, data stays on your device, sync by file.">
+<meta name="theme-color" content="#060a13">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+<div class="space" aria-hidden="true"><span class="glow glow-a"></span><span class="glow glow-b"></span></div>
+
+<div id="app">
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Oracle home">
+      <svg class="brand-mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true">
+        <g class="mark-orbit">
+          <path d="M17.87 7.2A9 9 0 1 0 24.8 14.13" fill="none" stroke="var(--c-mint)" stroke-width="3.4" stroke-linecap="round"/>
+          <circle class="mark-dot" cx="22.36" cy="9.64" r="2.4" fill="var(--c-amber)"/>
+        </g>
+      </svg>
+      <span class="brand-name">Oracle</span>
+    </a>
+    <div class="top-right">
+    <div id="serverStatus" class="server-status" data-state="checking" role="status" aria-live="polite">
+      <span class="ss-dot" aria-hidden="true"></span><span class="ss-label">CHECKING</span>
+    </div>
+    </div>
+  </header>
+
+  <main id="view-root"></main>
+
+  <nav class="dock" aria-label="Main navigation" data-i18n-label="Main navigation">
+    <button type="button" class="dock-btn" data-view="home"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5H15v-6H9v6H5.5A1.5 1.5 0 0 1 4 19v-8.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="none"/></svg><span data-i18n="Home">Home</span></button>
+    <button type="button" class="dock-btn" data-view="activity"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 6.5h11M9 12h11M9 17.5h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="4.5" cy="6.5" r="1.2" fill="currentColor"/><circle cx="4.5" cy="12" r="1.2" fill="currentColor"/><circle cx="4.5" cy="17.5" r="1.2" fill="currentColor"/></svg><span data-i18n="Activity">Activity</span></button>
+    <button id="addBtn" type="button" class="add-orb" aria-label="New expense (N)" data-i18n-label="New expense">
+      <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+    </button>
+    <button type="button" class="dock-btn" data-view="insights"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9h-9V3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="none"/><path d="M15.5 3.7A9 9 0 0 1 20.3 8.5H15.5V3.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="none"/></svg><span data-i18n="Insights">Insights</span></button>
+    <button type="button" class="dock-btn" data-view="you"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="8.5" r="4" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg><span data-i18n="You">You</span></button>
+  </nav>
+
+  <div id="sheet-root"></div>
+  <div id="toast-root" aria-live="polite"></div>
+  <div id="drop-hint" hidden><div class="drop-hint-inner" data-i18n="Drop the file to import">Drop the file to import</div></div>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

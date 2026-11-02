@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+*.log
+
+# local only: old app backup and editor/agent settings
+backup/
+.claude/
+.vscode/
