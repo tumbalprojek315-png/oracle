@@ -1,7 +1,7 @@
 // Offline support. App files: network-first (so a new version shows up on the
 // next online open, no manual cache bumps needed), falling back to the cache
 // when offline. Google Fonts: cache-first once fetched.
-const CACHE = 'oracle-v15';
+const CACHE = 'oracle-v16';
 
 const APP_SHELL = [
   './',
